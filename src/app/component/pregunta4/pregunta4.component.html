@@ -1,1 +1,47 @@
-<p>pregunta4 works!</p>
+<mat-card class="table-container">
+    <mat-card-header>
+      <h2>Lista de Productos</h2>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <div class="data-container">
+        <mat-table [dataSource]="dataSource" matSort class="table">
+          <!-- Columnas -->
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.id }}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="producto">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>PRODUCTO</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.producto }}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="precio">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>PRECIO</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.precio }}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="descripcion">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>DESCRIPCION</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.descripcion }}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="stock">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>STOCK</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.stock }}</mat-cell>
+          </ng-container>
+  
+          <!-- Fila de encabezado -->
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  
+          <!-- Filas de datos -->
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  
+        </mat-table>
+      </div>
+      <div class="table-paginator">
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>

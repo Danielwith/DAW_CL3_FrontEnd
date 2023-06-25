@@ -6,18 +6,30 @@ import { map } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private url = 'http://localhost:8080/clientes';
+  private url = 'http://localhost:8080/';
   constructor(private http: HttpClient) {}
 
   listAll() {
     return this.http
-      .get(`${this.url}/listarClientes`, {
+      .get(`${this.url}/clientes/listarClientes`, {
         observe: 'response',
       })
       .pipe(
         map((response: HttpResponse<any>) => {
           const data = response.body;
-          console.log(data);
+          return data;
+        })
+      );
+  }
+
+  listarProductos(){
+    return this.http
+      .get(`${this.url}/productos/listarProductos`, {
+        observe: 'response',
+      })
+      .pipe(
+        map((response: HttpResponse<any>) => {
+          const data = response.body;
           return data;
         })
       );
