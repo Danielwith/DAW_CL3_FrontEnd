@@ -1,0 +1,19 @@
+.start-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px);
+}
+
+.start-content {
+  height: 313.5px;
+  width: 430px;
+  object-fit: cover;
+  text-align: center;
+}
+
+.start-content > img {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+}

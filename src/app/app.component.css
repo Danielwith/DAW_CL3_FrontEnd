@@ -1,0 +1,11 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

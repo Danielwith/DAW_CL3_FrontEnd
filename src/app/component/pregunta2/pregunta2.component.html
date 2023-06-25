@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="param-container">
+    <form [formGroup]="form" (submit)="calcular()">
+      <div class="form-header">
+        <h2>Calificaciones:</h2>
+      </div>
+      <div class="form-container">
+        <mat-form-field>
+          <mat-label>Calificación 1</mat-label>
+          <input matInput type="number" formControlName="first">
+          <mat-error *ngIf="form.get('first')?.hasError('required')">Completar este campo</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Calificación 2</mat-label>
+          <input matInput type="number" formControlName="second">
+          <mat-error *ngIf="form.get('second')?.hasError('required')">Completar este campo</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Calificación 3</mat-label>
+          <input matInput type="number" formControlName="third">
+          <mat-error *ngIf="form.get('third')?.hasError('required')">Completar este campo</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-button">
+        <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">Calcular promedio</button>
+      </div>
+    </form>
+  </div>
+  <div class="result-container">
+    <mat-card>
+      <mat-card-header>
+        <h2>Resultado:</h2>
+      </mat-card-header>
+      <mat-card-content>
+        <h3>{{ result}}</h3>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
