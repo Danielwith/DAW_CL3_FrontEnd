@@ -6,7 +6,7 @@ import { map } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private url = 'http://localhost:8080/';
+  private url = 'http://localhost:8080';
   constructor(private http: HttpClient) {}
 
   listAll() {
@@ -22,7 +22,7 @@ export class ApiService {
       );
   }
 
-  listarProductos(){
+  listarProductos() {
     return this.http
       .get(`${this.url}/productos/listarProductos`, {
         observe: 'response',
